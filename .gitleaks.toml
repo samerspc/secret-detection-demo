@@ -1,0 +1,25 @@
+title = "gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "custom-password"
+description = "Generic password pattern"
+regex = '''password\s*=\s*["']?([^"'\s]+)["']?'''
+tags = ["password", "secret"]
+entropy = 0
+
+[[rules]]
+id = "custom-api-token"
+description = "Generic API token pattern"
+regex = '''api_token\s*=\s*["']?([^"'\s]+)["']?'''
+tags = ["api", "token", "secret"]
+entropy = 0
+
+[[rules]]
+id = "custom-sha256"
+description = "SHA-256 hash pattern"
+regex = '''sha_256\s*=\s*["']?([a-fA-F0-9]{64})["']?'''
+tags = ["hash", "secret"]
+entropy = 0
